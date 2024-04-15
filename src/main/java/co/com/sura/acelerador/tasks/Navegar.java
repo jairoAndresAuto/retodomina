@@ -16,7 +16,7 @@ public class Navegar implements Task {
         this.url = url;
     }
 
-    public static Performable ShopingCartWeb() {
+    public static Performable WebCarritoCompra() {
         return instrumented(Navegar.class, SHOPING_CART_URL);
     }
 

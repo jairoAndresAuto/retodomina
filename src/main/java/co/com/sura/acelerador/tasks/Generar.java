@@ -21,7 +21,7 @@ public class Generar implements Task {
         this.clientId = clientId;
     }
 
-    public static GenerarSolicitudes createAccount(){
+    public static GenerarSolicitudes crearCuenta(){
         return new GenerarSolicitudes();
     }
 

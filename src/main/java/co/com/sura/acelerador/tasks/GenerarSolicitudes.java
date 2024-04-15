@@ -6,17 +6,17 @@ public class GenerarSolicitudes {
     private String accountNumber;
     private String accountType;
 
-    public GenerarSolicitudes withAccount(String accountNumber){
+    public GenerarSolicitudes conCuenta(String accountNumber){
         this.accountNumber = accountNumber;
         return this;
     }
 
-    public GenerarSolicitudes ofType(String accountType){
+    public GenerarSolicitudes deTipo(String accountType){
         this.accountType = accountType;
         return this;
     }
 
-    public Generar and(String clientId){
+    public Generar Y(String clientId){
         return instrumented(Generar.class, accountNumber, accountType, clientId);
     }
 }

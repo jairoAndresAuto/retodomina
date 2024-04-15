@@ -20,7 +20,7 @@ public class Autenticar implements Task {
         this.loginData = loginData;
     }
 
-    public static Performable with(LoginData loginData) {
+    public static Performable con(LoginData loginData) {
         return instrumented(Autenticar.class, loginData);
     }
 

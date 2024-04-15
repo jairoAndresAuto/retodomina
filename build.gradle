@@ -25,7 +25,7 @@ repositories {
     mavenCentral()
 }
 
-group "co.com.sofka.acelerador"
+group "co.com.sura.acelerador"
 version '1.0.0'
 setSourceCompatibility JavaVersion.VERSION_17
 setTargetCompatibility JavaVersion.VERSION_17
@@ -45,11 +45,12 @@ ext {
     assertJVersion = '3.24.2'
     logbackVersion = '1.4.14'
     jacksonAnnotations = '2.15.2'
-    lombokVersion = '1.18.22'
+    lombokVersion = '1.18.24'
     javaFakerVersion = '1.0.2'
     seleniumDevToolsVersion = '4.12.1'
     serenityEnsureVersion = '3.9.7'
-    serenityRestVersion = '3.2.5'
+    serenityRestVersion = '4.0.14'
+    restAssuredVersion = '5.3.0'
 }
 
 dependencies {
@@ -60,6 +61,7 @@ dependencies {
             "net.serenity-bdd:serenity-screenplay-rest:${serenityRestVersion}",
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-ensure:${serenityEnsureVersion}",
+            "io.rest-assured:rest-assured:${restAssuredVersion}",
 
             "org.projectlombok:lombok:${lombokVersion}",
             "ch.qos.logback:logback-classic:${logbackVersion}",
@@ -84,7 +86,26 @@ dependencies {
 }
 
 test {
-    systemProperties System.getProperties()
+
+    String tiporegresion = System.properties['Tiporegresion']
+    println "Tipo de regresion recibido por parametro: " + tiporegresion
+    systemProperty "Tiporegresion", tiporegresion
+
+    switch (tiporegresion) {
+        case "@SISTEMA":
+            useJUnit()
+            include('**/InicioSesionRunner.class*')
+            maxParallelForks = 1
+            break
+        case "@BACKEND":
+            useJUnit()
+            include('**/CrearCuentaRunner.class*')
+            maxParallelForks = 1
+            break
+    }
+    testLogging {
+        exceptionFormat = 'full'
+    }
 }
 
 tasks.withType(JavaCompile) {

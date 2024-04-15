@@ -1,6 +1,9 @@
 package co.com.sura.acelerador.enums;
 
-import static co.com.sura.acelerador.util.Constantes.*;
+import static co.com.sura.acelerador.util.Constantes.AUTORIZATION;
+import static co.com.sura.acelerador.util.Constantes.CONTENTYPE;
+import static co.com.sura.acelerador.util.Constantes.TOKEN_PARABANK;
+import static co.com.sura.acelerador.util.Constantes.APPLICATIONJSON;
 
 public enum EncabezadoParametros {
 

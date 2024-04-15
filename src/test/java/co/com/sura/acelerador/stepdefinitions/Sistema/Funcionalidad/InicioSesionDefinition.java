@@ -35,20 +35,20 @@ public class InicioSesionDefinition {
         setTheStage(new OnlineCast());
     }
 
-    @Dado("Abrir la pagina web")
-    public void openThePageWeb() {
+    @Dado("que el usuario ingreso a Saucedemo")
+    public void usuarioIngresaASaucedemo() {
         theActorCalled(USUARIO).wasAbleTo(
-                Navegar.ShopingCartWeb()
+                Navegar.WebCarritoCompra()
         );
     }
-    @Cuando("me autentico con Usuario y Contrasena")
-    public void iAuthenticateWithUserAndPassword(LoginData loginData) {
+    @Cuando("autentica con usuario y contrasena")
+    public void autenticaConUsuarioYContrasena(LoginData loginData) {
         theActorInTheSpotlight().attemptsTo(
-                Autenticar.with(loginData)
+                Autenticar.con(loginData)
         );
     }
-    @Entonces("el sistema deberia mostrar la aplicacion homme")
-    public void theSystemShouldShowTheAppHomme() {
+    @Entonces("el sistema debera mostrar la aplicacion homme")
+    public void elSistemaMostraraHomme() {
         theActorInTheSpotlight().attemptsTo(
                 Ensure.that(PRODUCTS_TITLE).textValues().contains(HOME_PAGE_TITLE)
         );

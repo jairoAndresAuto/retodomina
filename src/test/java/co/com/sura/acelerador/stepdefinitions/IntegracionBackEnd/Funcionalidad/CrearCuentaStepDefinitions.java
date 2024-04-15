@@ -28,14 +28,14 @@ public class CrearCuentaStepDefinitions {
     }
 
     @Cuando("intento crear una cuenta {string} obteniendo fondos de la cuenta {string} para un cliente no existente con ID {string}")
-    public void iTryToCreateAnAccountTypeByGettingFundsFromAccountForANonExistingClientWithId(String accountType, String accountNumber, String clientId){
-        theActorCalled(FRONTEND).attemptsTo(
-                Generar.createAccount().withAccount(accountNumber).ofType(accountType).and(clientId)
+    public void iTryToCreateAnAccountTypeByGettingFundsFromAccountForANonExistingClientWithId(String tipoCuenta, String numeroCuenta, String idCliente){
+        theActorCalled(BACKEND).attemptsTo(
+                Generar.crearCuenta().conCuenta(numeroCuenta).deTipo(tipoCuenta).Y(idCliente)
         );
     }
 
-    @Entonces("el sistema no debería permitir crear la cuenta")
-    public void theSystemShouldNotAllowToCreateTheAccount(){
+    @Entonces("el sistema no debera permitir crear la cuenta")
+    public void elSistemaNoDeberaPermitirCrearCuenta(){
         theActorInTheSpotlight().should(seeThat(
                 EstadoCodigo.is(STATUS_CODE_INTERNAL_SUCCESS), Matchers.equalTo(true)).orComplainWith(EstadoCodigoExcepcion.class, MSJ_EXCEP_STAT_CODE)
         );

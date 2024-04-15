@@ -5,6 +5,7 @@ public class Constantes {
     public static final String SHOPING_CART_URL = "https://www.saucedemo.com/";
     public static final String BASE_URL_API = "http://parabank.parasoft.com/parabank/services/bank";
     public static final String FRONTEND = "FrontEnd";
+    public static final String BACKEND = "BackEnd";
     public static final String API_CREATE_ACCOUNT = "/createAccount?customerId=%s&newAccountType=%s&fromAccountId=%s";
     public static final String AUTORIZATION = "Authorization";
     public static final String TOKEN_PARABANK = "parabank.parasoft";
