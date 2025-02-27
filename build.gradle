@@ -25,7 +25,7 @@ repositories {
     mavenCentral()
 }
 
-group "co.com.sura.acelerador"
+group "co.com.saucedo.automatizacion"
 version '1.0.0'
 setSourceCompatibility JavaVersion.VERSION_17
 setTargetCompatibility JavaVersion.VERSION_17

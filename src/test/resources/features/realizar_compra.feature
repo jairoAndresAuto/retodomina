@@ -1,4 +1,5 @@
 #language: es
+  ##Autor:jairo_garcia82122@elpoli.edu.co
 Característica: Como analista de automatizacion de pruebas o desarrollador
   Quiero probar el iniciar de sesion de la aplicacion
   Para verificar la calidad de la aplicacion
